@@ -4,31 +4,23 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Order implements Serializable {
 
 
-    private Map<String, String> dishes, count ;
-
-
-    @SerializedName("dishesList")
+    @SerializedName("order_dishes")
     private ArrayList<Dish> dishesList;
 
 
-    private int orderId, userId, addressId, status;
+    private int orderId, userId, addressId, status, eta;
+    private double subtotal, delivery, total, discount;
+    private String location, schedule, orderTime, creationTime, phone, fullAddress, addressName,
+            dishes, count, options, sizes, sides1, sides2, comment, area, street, landMark, floor, apartmentNumber, buildingNumber;
+    private float latitude, longitude;
 
-    double subtotal, delivery, total, discount;
-
-    private String location, schedule, orderTime, creationTime, phone, kitchen;
-
-
-    @SerializedName("fullAddress")
-    private Address fullAddress;
-
-
-    public Order(int orderId, ArrayList<Dish> dishesList, int status, double subtotal, double delivery, double total, double discount, int userId, String location,
-                 int addressId, String phone, String schedule, String orderTime, String creationTime, Address fullAddress, String kitchen) {
+    public Order(int orderId, ArrayList<Dish> dishesList, int status, double subtotal, double delivery, double total, double discount,
+                 String phone, String orderTime, String creationTime, String fullAddress, String addressName,
+                 String comment, int eta, String area, String street, String landMark, String floor, String apartmentNumber, String buildingNumber, float latitude, float longitude) {
         this.dishesList = dishesList;
         this.orderId = orderId;
         this.status = status;
@@ -36,21 +28,32 @@ public class Order implements Serializable {
         this.delivery = delivery;
         this.total = total;
         this.discount = discount;
-        this.userId = userId;
-        this.location = location;
-        this.addressId = addressId;
-        this.schedule = schedule;
         this.phone = phone;
         this.orderTime = orderTime;
         this.creationTime = creationTime;
         this.fullAddress = fullAddress;
-        this.kitchen = kitchen;
+        this.addressName = addressName;
+        this.comment = comment;
+        this.eta = eta;
+        this.area = area;
+        this.street = street;
+        this.landMark = landMark;
+        this.floor = floor;
+        this.apartmentNumber = apartmentNumber;
+        this.buildingNumber = buildingNumber;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public Order(Map<String, String> dishes, Map<String, String> count, double subtotal, double delivery, double total, double discount, int userId, String location,
-                 int addressId, String phone, String schedule, String orderTime, String creationTime) {
+    public Order(String dishes, String count, String options, String sizes, String sides1, String sides2,
+                 double subtotal, double delivery, double total, double discount, int userId, String location,
+                 int addressId, String phone, String orderTime, String creationTime, int eta, String comment) {
         this.dishes = dishes;
         this.count = count;
+        this.options = options;
+        this.sizes = sizes;
+        this.sides1 = sides1;
+        this.sides2 = sides2;
         this.subtotal = subtotal;
         this.delivery = delivery;
         this.total = total;
@@ -58,10 +61,11 @@ public class Order implements Serializable {
         this.userId = userId;
         this.location = location;
         this.addressId = addressId;
-        this.schedule = schedule;
         this.phone = phone;
         this.orderTime = orderTime;
         this.creationTime = creationTime;
+        this.eta = eta;
+        this.comment = comment;
     }
 
     public String getSchedule() {
@@ -74,12 +78,12 @@ public class Order implements Serializable {
         return orderTime;
     }
 
-    public Map<String, String> getDishes() {
+    public String getDishes() {
 
         return dishes;
     }
 
-    public Map<String, String> getCount() {
+    public String getCount() {
         return count;
     }
 
@@ -141,7 +145,7 @@ public class Order implements Serializable {
         return dishesList;
     }
 
-    public Address getFullAddress() {
+    public String getFullAddress() {
         return fullAddress;
     }
 
@@ -150,12 +154,70 @@ public class Order implements Serializable {
         return orderId;
     }
 
-    public String getKitchen() {
-        return kitchen;
-    }
 
     public int getStatus() {
         return status;
+    }
+
+
+    public String getOptions() {
+        return options;
+    }
+
+    public String getSizes() {
+        return sizes;
+    }
+
+    public String getSides1() {
+        return sides1;
+    }
+
+    public String getSides2() {
+        return sides2;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public int getEta() {
+        return eta;
+    }
+
+    public String getAddressName() {
+        return addressName;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getLandMark() {
+        return landMark;
+    }
+
+    public String getFloor() {
+        return floor;
+    }
+
+    public String getApartmentNumber() {
+        return apartmentNumber;
+    }
+
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
     }
 }
 

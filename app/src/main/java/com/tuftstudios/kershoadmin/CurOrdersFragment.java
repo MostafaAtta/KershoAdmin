@@ -80,7 +80,7 @@ public class CurOrdersFragment extends Fragment {
         }
 */
         call = RetrofitClient.getInstance().getApi()
-                .getCurOrders(SharedPrefManager.getInstance(context).getSavedUser().getKitchen());
+                .getCurOrders(SharedPrefManager.getInstance(context).getSavedUser().getId());
 
 //        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders("Main Dish", "Maadi");
 

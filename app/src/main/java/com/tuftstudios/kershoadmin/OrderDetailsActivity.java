@@ -97,7 +97,10 @@ public class OrderDetailsActivity extends AppCompatActivity implements View.OnCl
 
         recyclerView = findViewById(R.id.recycler_cart2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dishesAdapter = new DishesAdapter(OrderDetailsActivity.this, order.getDishesList(), order);
+        recyclerView.setAdapter(dishesAdapter);
 
+        /*
         int OrderId = order.getId();
 
 //        Bundle extras = getIntent().getExtras();
@@ -122,8 +125,8 @@ public class OrderDetailsActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText(OrderDetailsActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
 
             }
-        });
-//        }
+        });*/
+
     }
 
 
@@ -187,7 +190,7 @@ public class OrderDetailsActivity extends AppCompatActivity implements View.OnCl
         timeTv.setText(order.getOrderTime());
 
         if (userType != 1) {
-            addressTv.setText(order.getFullAddress().getFullAddress());
+            addressTv.setText(order.getFullAddress());
             mobileTv.setText(order.getMobile());
             subTotalTv.setText(order.getSubtotalPrice() + " EGP");
             deliveryFeesTv.setText(order.getDelivery() + " EGP");
@@ -272,8 +275,8 @@ public class OrderDetailsActivity extends AppCompatActivity implements View.OnCl
         if (v == addressTv){
 
 
-            double latitude = order.getFullAddress().getLatitude();
-            double longitude = order.getFullAddress().getLongitude();
+            double latitude = order.getLatitude();
+            double longitude = order.getLongitude();
             String label = "Deliver Address!";
             String uriBegin = "geo:" + latitude + "," + longitude;
             String query = latitude + "," + longitude + "(" + label + ")";

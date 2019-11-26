@@ -76,7 +76,7 @@ public class PreOrdersFragment extends Fragment {
         }*/
 
         call = RetrofitClient.getInstance().getApi()
-                .getOldOrders(SharedPrefManager.getInstance(context).getSavedUser().getKitchen());
+                .getOldOrders(SharedPrefManager.getInstance(context).getSavedUser().getId());
 
 
 //        Call<KitchenOrders> call = RetrofitClient.getInstance().getApi().getAllOldOrders();

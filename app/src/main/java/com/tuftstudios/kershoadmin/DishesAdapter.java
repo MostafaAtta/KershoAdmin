@@ -41,7 +41,7 @@ public class DishesAdapter extends RecyclerView.Adapter<DishesAdapter.DishesView
         int count = order.getDishesList().get(position).getQuantity();
 
         dishesViewHolder.count.setText("X" + count);
-        dishesViewHolder.textViewKitchen.setText(String.valueOf(dish.getKitchen()));
+        //dishesViewHolder.textViewKitchen.setText(String.valueOf(dish.getKitchen()));
 
     }
 
